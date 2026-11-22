@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiniNova / UltraNova → Circuit Tracks</title>
+<style>
+  body { font: 14px/1.45 system-ui, sans-serif; margin: 0; background: #12141f; color: #e8eaf6; }
+  main { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 22px; margin: 0 0 8px; }
+  #drop { border: 2px dashed #5b6bd6; border-radius: 8px; padding: 20px; margin: 16px 0; display: flex; gap: 12px; align-items: center; }
+  #drop.over { background: #1d2342; }
+  button, select { background: #2c4bc6; color: #fff; border: 1px solid #7796ff; border-radius: 4px; padding: 5px 10px; cursor: pointer; font: inherit; }
+  button:disabled { opacity: .4; cursor: default; }
+  table { border-collapse: collapse; width: 100%; margin-top: 12px; font-size: 13px; }
+  th, td { text-align: left; padding: 4px 8px; border-bottom: 1px solid #2a2f4f; vertical-align: top; }
+  th { position: sticky; top: 0; background: #12141f; }
+  .bar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .muted { color: #9fa6d4; }
+</style>
+</head>
+<body>
+<main>
+  <div class="bar"><h1 data-t="title"></h1><button id="lang" data-t="lang"></button></div>
+  <p class="muted" data-t="intro"></p>
+  <div id="drop"><button id="pickBtn" data-t="pick"></button><input id="pick" type="file" accept=".syx" multiple hidden><span data-t="drop"></span></div>
+  <div class="bar">
+    <label><span data-t="filter"></span> <select id="filter"><option value="all"></option><option value="ab"></option><option value="a"></option></select></label>
+    <button id="zip" data-t="zip"></button>
+    <span id="count"></span> <span id="status" class="muted"></span>
+  </div>
+  <p class="muted" data-t="legend"></p>
+  <table>
+    <thead><tr><th data-t="col_grade"></th><th data-t="col_name"></th><th data-t="col_source"></th><th data-t="col_major"></th><th data-t="col_minor"></th><th data-t="col_adapted"></th><th data-t="col_fx"></th><th data-t="col_dl"></th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+<script src="texts.js"></script>
+<script src="template.js"></script>
+<script src="converter.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
